@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "27.0.3"
+
+    signingConfigs {
+        release {
+            storeFile file("/home/walley/src/androidkey/my-release-key.keystore")
+            storePassword "aaaaaa"
+            keyAlias "walley"
+            keyPassword "aaaaaa"
+        }
+    }
+
+    defaultConfig {
+        applicationId "org.walley.androidtop"
+        minSdkVersion 14
+        targetSdkVersion 26
+        versionCode 5
+        versionName "0.0.5"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+
+}
